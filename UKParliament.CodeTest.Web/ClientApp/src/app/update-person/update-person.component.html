@@ -1,0 +1,43 @@
+<h4 color="primary"  class="dialog-headline">Edit Person Record</h4>
+<div *ngIf="!isSuccess">
+    <div class="form-add-error">Error Found!.</div>
+</div>
+<div class="form-container">
+    <mat-dialog-content>
+      <form [formGroup]="editform">
+        <mat-form-field appearance="standard">
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="id" readonly/>
+          </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter your name" formControlName="name" required/>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email address" formControlName="email" required>
+        </mat-form-field>        
+        <mat-form-field appearance="standard">
+          <mat-label>Address</mat-label>
+          <textarea
+            matInput
+            placeholder="Address"
+            formControlName="address"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Date of birth" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-raised-button (click)="dialogRef.close(false)" color="primary">
+        Cancel
+      </button>
+      <button mat-raised-button color="primary"  [disabled]="!editform.valid" (click)="submit(editform.value)">
+        Save
+      </button>
+    </mat-dialog-actions>
+  </div>
+

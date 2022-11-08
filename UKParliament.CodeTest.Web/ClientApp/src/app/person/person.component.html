@@ -1,0 +1,25 @@
+<div class="person-page">
+<mat-toolbar color="primary">
+  <mat-icon>person</mat-icon> Person Manager
+</mat-toolbar>
+<mat-card class="person-card">
+  <mat-card-actions align="start">
+    <button mat-raised-button color="primary" class="add-button" (click)="addNewPerson()"> Add <mat-icon>add</mat-icon></button>
+  </mat-card-actions>
+  <mat-divider variant="middle"></mat-divider>
+  <mat-card-content>
+    <mat-list *ngFor="let p of person$ | async">
+      <mat-list-item>
+        <h3 mat-line> {{p.name}} </h3>
+        <button mat-icon-button (click)="editRecord(p)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteRecord(p)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-divider variant="middle"></mat-divider>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+</div>

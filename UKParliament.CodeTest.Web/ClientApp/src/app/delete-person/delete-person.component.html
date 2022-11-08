@@ -1,0 +1,16 @@
+
+<div *ngIf="!isSuccess">
+    <div class="form-add-error">Error Found!.</div>
+</div>
+<h1 mat-dialog-title>
+    Delete Person
+</h1>
+  
+  <div mat-dialog-content>
+    <p> Are you sure you want to delete {{message}}?</p>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button mat-button (click)="onDismiss()">No</button>
+    <button mat-raised-button color="primary" (click)="onConfirm()">Yes</button>
+  </div>
